@@ -3,7 +3,7 @@
 ![Ekran Görüntüsü (18)](https://user-images.githubusercontent.com/63349869/172916923-e1b447a1-8c98-4896-a0e2-974b94237a99.png)
 ![Ekran Görüntüsü (19)](https://user-images.githubusercontent.com/63349869/172916933-93053530-c51d-4216-918c-699fed01b648.png)
 ![Ekran Görüntüsü (17)](https://user-images.githubusercontent.com/63349869/172916946-cbb8bfe3-7545-43de-9d1e-d99ff6978206.png)
-![Ekran Görüntüsü (15)](https://user-images.githubusercontent.com/63349869/172916964-0314d6e8-1def-4ae7-8c54-2e4a92264c94.png)
+
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
