@@ -1,0 +1,29 @@
+
+<span class="p-input-icon-left " style="margin-left:40px ;">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [(ngModel)]="filterText" placeholder="Search">         
+</span>
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="margin-bottom:10px;" *ngFor="let product of products| filter:filterText">
+            <p-card  [style]="{ 'width': '18em','height': '32em','margin-left': '1em','margin-top': '0'}" styleClass="p-card-shadow">
+                <ng-template pTemplate="header"  >
+                    <img alt="Card" src="https://girisimturkiye.com/wp-content/uploads/2016/12/wsi-imageoptim-urunu-piyasaya-surmek.jpg" >
+                </ng-template>
+           <div>
+            <p>{{product.name | uppercase}}</p>
+            <p>unitPrice: {{product.unitPrice| vat:10 | currency:"USD"}}  </p>
+            <p>unitsInStock: {{product.unitsInStock}}</p>
+           </div>
+              
+                
+                    <p-button class="update" label="Update"  routerLink="/product-update/"  icon="pi pi-fw pi-arrow-up-right" optionLabel="id" (click)="selectedProductId(product)" styleClass="p-button-help"></p-button>
+                    <p-button class="delete" label="Select" icon="pi pi-times" (click)="getProductDelete(product.id)" styleClass="p-button-danger" routerLink="/products" [style]="{'margin-left': '.5em'}"></p-button>
+                
+            </p-card>
+        </div>   
+        <div *ngIf="!(products | filter:filterText)?.length">No Result Found!</div>    
+    </div>
+</div>

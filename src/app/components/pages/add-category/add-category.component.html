@@ -1,0 +1,12 @@
+<div class="container w-75">
+    <h3 class="m-3">Add New Category</h3>
+    <form [formGroup]="categoryAddForm" (ngSubmit)="add()" >
+      <div class="form-group m-3">
+        <label for="name" class="block">Category Name</label>
+        <input id="name" formControlName="name" type="text" aria-describedby="username-help" class="form-control" pInputText />
+        <small *ngIf="categoryAddForm.get('name').hasError('required') && categoryAddForm.get('name').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Category Name is not available.</small>
+      </div>                   
+      <p-button label="Submit" type="submit" icon="pi pi-check" class="m-3" [disabled]="categoryAddForm.invalid"></p-button>    
+    </form>
+  </div>
+<div>

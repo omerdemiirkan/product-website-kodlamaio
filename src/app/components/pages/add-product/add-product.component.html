@@ -1,0 +1,30 @@
+<div class="container w-75">
+  <h3 class="m-3">Add New Product</h3>
+  <form [formGroup]="productAddForm" (ngSubmit)="add()" >
+    <div class="form-group m-3">
+      <label for="name" class="block">Product Name</label>
+      <input id="name" formControlName="name" type="text" aria-describedby="username-help" class="form-control" pInputText />
+      <small *ngIf="productAddForm.get('name').hasError('required') && productAddForm.get('name').dirty" id="username-help" class="p-error block ng-invalid ng-dirty">Name is not available.</small>
+    </div>
+    <div class="form-group m-3">
+      <label for="unitPrice" class="block">Unit Price</label>
+      <input id="unitPrice" formControlName="unitPrice" type="text" aria-describedby="unitPrice-help" class="form-control" pInputText />
+      <small *ngIf="productAddForm.get('unitPrice').hasError('required') && productAddForm.get('unitPrice').dirty" id="unitPrice-help" class="p-error block ng-invalid ng-dirty">unitPrice is not available.</small>
+    </div>
+    <div class="form-group m-3">
+      <label for="unitsInStock" class="block">Units In Stock</label>
+      <input id="unitsInStock" formControlName="unitsInStock" type="text" aria-describedby="unitsInStock-help" class="form-control" pInputText />
+      <small *ngIf="productAddForm.get('unitsInStock').hasError('required') && productAddForm.get('unitsInStock').dirty" id="unitsInStock-help" class="p-error block ng-invalid ng-dirty">unitsInStock is not available.</small>
+    </div>
+    <div class="form-group m-3">
+      <label for="categoryId" class="block">Category</label>
+      <select class="form-control" required name="categoryId" id="categoryId" formControlName="categoryId" aria-describedby="unitPrice-help">
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </option>
+      </select>
+      <small *ngIf="productAddForm.get('categoryId').hasError('required') && productAddForm.get('categoryId').touched" id="unitsInStock-help" class="p-error block ng-invalid ng-dirty">Category is not available.</small>
+    </div>
+    <p-button label="Submit"  type="submit" icon="pi pi-check" class="m-3" [disabled]="productAddForm.invalid"></p-button>    
+  </form>
+</div>

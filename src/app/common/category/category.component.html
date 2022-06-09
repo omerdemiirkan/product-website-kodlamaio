@@ -1,0 +1,12 @@
+<div class="login">
+    <a class="justify-content-center btn btn-success" *ngIf="isloggedIn()==false" routerLink="/users/login"> login</a>
+    <a class="btn btn-danger" *ngIf="isloggedIn()==true" (click)="logOut()" routerLink="/users/login"> logOut</a>
+</div>
+
+<span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [(ngModel)]="categoryfilterText" placeholder="Search">         
+</span>
+<br><br>
+
+<p-listbox [options]="categories | filtercat:categoryfilterText" [(ngModel)]="selectedCategory " (click)="selectedCategoryId()" optionLabel="name"></p-listbox>
