@@ -29,7 +29,7 @@ export class ProductService {
   }
 
   getProductById(proId:number):Observable<Product>{
-    let newPath = this.apiUrl + (proId)
+    let newPath = this.apiUrl +"/"+ (proId)
     return this.httpClient.get<Product>(newPath)
   }
 
@@ -37,8 +37,8 @@ export class ProductService {
     return this.httpClient.put<Product>("http://localhost:3000/products/"+product.id,product)
   }
 
-  deleteProduct(val:number):Observable<Product>{
-    return this.httpClient.delete<Product>("http://localhost:3000/products/"+val)
+  deleteProduct(val:number):Observable<Product[]>{
+    return this.httpClient.delete<Product[]>("http://localhost:3000/products/"+val)
   }
 
 

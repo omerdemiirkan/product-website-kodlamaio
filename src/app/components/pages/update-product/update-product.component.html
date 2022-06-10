@@ -8,7 +8,7 @@
     </div>
     <div class="form-group m-3">
       <label for="unitPrice" class="block">Unit Price</label>
-      <input id="unitPrice" formControlName="unitPrice" type="text" aria-describedby="unitPrice-help" class="form-control" [(ngModel)]="product.unitPrice" pInputText />
+      <input id="unitPrice" formControlName="unitPrice" type="text" aria-describedby="unitPrice-help" class="form-control" [(ngModel)]="product.unitPrice"  pInputText />
       <small *ngIf="productUpdateForm.get('unitPrice').hasError('required') && productUpdateForm.get('unitPrice').dirty" id="unitPrice-help" class="p-error block ng-invalid ng-dirty">unitPrice is not available.</small>
     </div>
     <div class="form-group m-3">

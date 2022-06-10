@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { Category } from 'src/app/models/category';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
+
 
 @Component({
   selector: 'app-update-product',
@@ -13,14 +14,17 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent implements OnInit {
-  product:Product;
-  selectedProductId:number;  
+  product:Product=new Product()
+  selectedProductId:number
   categories: Category[];
+  productUpdateForm:FormGroup
   
+
+
   constructor(private productService:ProductService, private activatedRoute:ActivatedRoute
     ,private formBuilder:FormBuilder,private categoryService:CategoryService,private messageService:MessageService) { }
     
-    productUpdateForm:FormGroup
+   
     updateProductAddForm(){
       this.productUpdateForm=this.formBuilder.group({
         id:[this.product.id,Validators.required],
@@ -32,9 +36,10 @@ export class UpdateProductComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.updateProductAddForm()
     this.getCategory()
     this.getProductsById()
-    
+  
   }
 
   getProductsById(){

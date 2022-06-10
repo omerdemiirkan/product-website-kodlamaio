@@ -1,11 +1,11 @@
 .delete{
     position: relative;
-    left:10px;
-    top:70px
+    left:120px;
+    top:50px
 }
 .update{
     position:relative   ;
-    left: 10px;
-    top:70px
+    left: 0px;
+    top:100px
 
 }

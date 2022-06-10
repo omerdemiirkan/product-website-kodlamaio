@@ -51,6 +51,7 @@ export class AddProductComponent implements OnInit {
         detail: data.name,
       })
     })
+    window.location.href="/products"
   }
 
 

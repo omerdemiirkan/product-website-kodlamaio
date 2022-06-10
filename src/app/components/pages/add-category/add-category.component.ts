@@ -34,14 +34,14 @@ export class AddCategoryComponent implements OnInit {
     if(this.categoryAddForm.valid){
       this.category=Object.assign({},this.categoryAddForm.value)
     }
-    this.categoryService.addCategory(this.category).subscribe(data=>{
-      console.log(data)        
+    this.categoryService.addCategory(this.category).subscribe(data=>{      
       this.messageService.add({
         severity: 'success',
         summary: 'Category Successfully Added',
-        detail: data.name,
-      })
+        detail: data.name,  
+      }) 
     })
+    window.location.href="/products"
   }
  
 

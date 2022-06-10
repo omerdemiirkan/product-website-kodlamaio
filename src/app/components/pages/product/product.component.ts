@@ -14,9 +14,9 @@ import {PrimeIcons} from 'primeng/api';
 export class ProductComponent implements OnInit {
   
   products:Product[];
-  selectedCategoryId:number=1
+  selectedCategoryId:number
   filterText:string="";
-
+  
 
   constructor(private productService:ProductService, private activatedRoute:ActivatedRoute) { }
 
@@ -33,25 +33,24 @@ export class ProductComponent implements OnInit {
     if(this.selectedCategoryId==undefined){
       this.productService.getProducts().subscribe(data => {
         this.products = data;
-        console.log(this.products)
       })
     }
     else{
       this.productService.getProductByCategory(this.selectedCategoryId).subscribe(data =>{
         this.products = data
-        console.log(this.selectedCategoryId)
       })
     }
     
   }
 
   selectedProductId(selectedProduct:Product):void{
-    window.location.href= `product/${selectedProduct.id}`
+    window.location.href= `products/${selectedProduct.id}`
 }
 
 getProductDelete(val:number){
   if(confirm("Are you sure want to delete?")){
     this.productService.deleteProduct(val).subscribe()
+    window.location.reload()
   }
 }
   

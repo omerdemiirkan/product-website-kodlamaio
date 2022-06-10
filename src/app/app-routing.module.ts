@@ -13,12 +13,12 @@ import { LoginComponent } from './components/pages/login/login.component';
 const routes: Routes = [
   {path:"", pathMatch: "full" , component:AddUserComponent ,},
   {path:"product/categoryId/:id" , component:ProductComponent },
-  {path:"products" , component:ProductComponent,canActivate:[AuthGuard] },
-  {path:"product/addProduct" ,component:AddProductComponent },
+  {path:"products" , component:ProductComponent, },
+  {path:"product/addProduct" ,component:AddProductComponent ,canActivate:[AuthGuard] },
   {path:"product/addCategory" ,component:AddCategoryComponent ,canActivate:[AuthGuard]},
-  {path:"product/:id" ,component: UpdateProductComponent },
+  {path:"products/:id" ,component: UpdateProductComponent },
   {path:"users/login" ,component: LoginComponent },
-  {path:"users/addUser" ,component: AddUserComponent , },  
+  {path:"users/addUser" ,component: AddUserComponent ,  },  
   {path:"**" ,component:NotFoundComponent }
 ];
 
